@@ -4,7 +4,7 @@ var topics = ["dog", "cat", "rabbit", "hamster"]
 
 
 function showButtoninfo() {
-    
+
     var topic = $(this).attr("topic-name").replace(/ /g, "+");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=QuQYFZTrQhKIdh8fR4RrF0SwnXCCzElY&limit=10"
@@ -18,22 +18,46 @@ function showButtoninfo() {
 
         // create a loop for each picture for each result
         for (var i = 0; i < results.length; i++) {
-        var gifDiv = $("<div class='gif'>");
-        var rating = results[i].rating;
-        var p = $("<p>").text("Rating: " + rating);
+            var gifDiv = $("<div>");
+            var rating = results[i].rating;
+            var p = $("<p>").text("Rating: " + rating);
+            //classify it with the gif class
+            var img = $("<img class='gif'>");
+            //give it the state of still so i can change it back and forth
+            img.attr("state", "still");
+            img.attr("src", results[i].images.fixed_height_still.url);
+            //add the still and the animated links into the img attributes
+            
+            img.attr("still", results[i].images.fixed_height_still.url)
+            img.attr("animated", results[i].images.fixed_height.url)
+            gifDiv.prepend(p);
+            gifDiv.prepend(img);
 
-        var img = $("<img>");
-        img.attr("src", results[i].images.fixed_height.url);
-
-        gifDiv.prepend(p);
-        gifDiv.prepend(img);
-
-        $("#pictures").prepend(gifDiv)
+            $("#pictures").prepend(gifDiv)
 
         }
 
     });
 }
+
+// Animate my gifs when clicking on them
+function animate() {
+    console.log($(this))
+    //define my state
+    var state = $(this).attr("state")
+    var still = $(this).attr("still")
+    var gif =  $(this).attr("animated")
+    // check if it's still, if it is update the src to animate and update the state attr to animate
+
+    if(state === "still"){
+        $(this).attr("src", gif) // change the src image to the gif link
+        $(this).attr("state", "animated") // Change the state to animate
+    } else{
+        $(this).attr("src", still)
+        $(this).attr("state", "still")
+    }
+};
+
 
 //Create buttons
 function makeButtons() {
@@ -58,7 +82,7 @@ function makeButtons() {
 }
 
 //this function handles when they add a button
-$("#add-topic").on("click", function(event){
+$("#add-topic").on("click", function (event) {
     event.preventDefault();
 
     var topic = $("#topic-input").val().trim();
@@ -68,6 +92,7 @@ $("#add-topic").on("click", function(event){
 
 // function to display the button info
 $(document).on("click", ".topic", showButtoninfo);
+$(document).on("click", ".gif", animate)
 
 //call to make the buttons
 makeButtons();
