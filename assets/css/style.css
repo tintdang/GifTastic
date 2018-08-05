@@ -1,0 +1,24 @@
+.float {
+    float: left;
+    margin-right: 15px;
+}
+
+p{
+    font-weight: bold;
+}
+
+#buttons,
+#topic-form {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#topic-input{
+    width: 98%;
+    margin-bottom: 5px;
+}
+
+.topic{
+    margin: 5px
+}

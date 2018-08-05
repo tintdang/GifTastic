@@ -18,7 +18,7 @@ function showButtoninfo() {
 
         // create a loop for each picture for each result
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div>");
+            var gifDiv = $("<div class=\"float\">");
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
             //classify it with the gif class
@@ -42,7 +42,7 @@ function showButtoninfo() {
 
 // Animate my gifs when clicking on them
 function animate() {
-    console.log($(this))
+
     //define my state
     var state = $(this).attr("state")
     var still = $(this).attr("still")
@@ -71,7 +71,7 @@ function makeButtons() {
 
         //Generate buttons for all topics in the array
         var button = $("<button>")
-        button.addClass("topic");
+        button.addClass("topic btn btn-primary");
         //Add a data atrritbute
         button.attr("topic-name", topics[i])
         button.text(topics[i])
@@ -90,7 +90,7 @@ $("#add-topic").on("click", function (event) {
     makeButtons();
 })
 
-// function to display the button info
+// function to display the button info, have it ready always to be clicked on
 $(document).on("click", ".topic", showButtoninfo);
 $(document).on("click", ".gif", animate)
 
