@@ -2,6 +2,7 @@ html,
 body{
     margin: 0;
     padding: 0;
+    background: rgb(226, 226, 226)
 }
 
 .float {
@@ -36,4 +37,5 @@ p,
 
 .gif{
     margin-bottom: 20px;
+    cursor: pointer;
 }
