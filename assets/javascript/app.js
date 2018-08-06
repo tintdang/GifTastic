@@ -1,5 +1,5 @@
 // Create variables
-var topics = ["dog", "cat", "rabbit", "hamster"]
+var topics = ["dog", "cat", "rabbit", "hamster", "pusheen", "dragonball", "deal"]
 
 
 
@@ -20,9 +20,9 @@ function showButtoninfo() {
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $("<div class=\"float\">");
             var rating = results[i].rating;
+            var img = $("<img class='gif'>");
             var p = $("<p>").text("Rating: " + rating);
             //classify it with the gif class
-            var img = $("<img class='gif'>");
             //give it the state of still so i can change it back and forth
             img.attr("state", "still");
             img.attr("src", results[i].images.fixed_height_still.url);
@@ -30,8 +30,8 @@ function showButtoninfo() {
             
             img.attr("still", results[i].images.fixed_height_still.url)
             img.attr("animated", results[i].images.fixed_height.url)
-            gifDiv.prepend(p);
             gifDiv.prepend(img);
+            gifDiv.prepend(p);
 
             $("#pictures").prepend(gifDiv)
 
@@ -86,8 +86,13 @@ $("#add-topic").on("click", function (event) {
     event.preventDefault();
 
     var topic = $("#topic-input").val().trim();
+    if(topic === ""){
+        return // prevent the button from returning blank buttons
+    }
+    else{
     topics.push(topic);
     makeButtons();
+    }
 })
 
 // function to display the button info, have it ready always to be clicked on
