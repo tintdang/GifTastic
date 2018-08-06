@@ -1,10 +1,10 @@
 // Create variables
-var topics = ["dog", "cat", "rabbit", "hamster", "pusheen", "dragonball", "deal"]
+var topics = ["dog", "cat", "rabbit", "hamster", "pusheen", "dragonball", "deal", "star wars", "drift", "music", "piano", "spark", "star", "big bang", "black panther", "marvel", "iron man", "thor", "fire", "avatar", "cool", "snap", "fast", "speed", "quiet", "shh", "panda", "explosion"]
 
 
 
 function showButtoninfo() {
-
+    // to get all spaces with a +
     var topic = $(this).attr("topic-name").replace(/ /g, "+");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=QuQYFZTrQhKIdh8fR4RrF0SwnXCCzElY&limit=10"
