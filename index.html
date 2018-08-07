@@ -11,10 +11,12 @@
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <title>GifTastic</title>
 </head>
 
 <body>
+    <h2 class="text-center">GifTastic</h2>
     <div id="buttons"></div>
     <div class="container-fluid">
     <div class="row">
@@ -23,11 +25,12 @@
         </div>
         <div class="col-md-4 order-first order-md-2"> <!-- this makes it mobile reponsive so that the topic add would be on top of the images-->
             <form id="topic-form">
-                <label id="inputText" for="topic-input">Add any additional topics here!</label>
-                <br>
+      
+                    <h3 id="addTopic">Add any additional topics!</h3>
+        
                 <input type="text" id="topic-input">
                 <br>
-                <input class="btn-primary" id="add-topic" type="submit" value="Click here to add a topic">
+                <input class="btn-primary float-right" id="add-topic" type="submit" value="Click here to add a topic">
             </form>
         </div>
     </div>
