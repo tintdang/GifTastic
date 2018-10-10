@@ -18,7 +18,6 @@ open index.html in your favorite browser
 
 * Under every gif, it will display its rating (PG, G, so on).
    * This data is provided by the GIPHY API.
-   * Only once you get images displaying with button presses should you move on to the next step.
 
 * Users are allowed to add onto the buttons using the form to input what gis they want to search
 
